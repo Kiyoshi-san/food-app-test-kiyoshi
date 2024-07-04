@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
+import Menu from "./pages/Menu/Menu";
 import reportWebVitals from "./reportWebVitals";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -11,7 +11,7 @@ import "./utils/i18n";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 
-const router = createBrowserRouter([{ path: "/", element: <App /> }]);
+const router = createBrowserRouter([{ path: "/", element: <Menu /> }]);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

@@ -9,6 +9,7 @@
   --info-color: #17a2b8;
   --dark-color: #343a40;
   --light-color: #f8f9fa;
+  --light-color-text: #DADADA;
 
   --opacity: 0.65;
 
@@ -36,3 +37,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  font-family: var(--font-roboto);
+}
