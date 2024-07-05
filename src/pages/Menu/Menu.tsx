@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import "./menu.module.css";
 import Menu from "components/Menu";
 import MenuSectionMenu from "components/MenuSectionMenu";
@@ -9,6 +9,8 @@ import Input from "components/Input";
 import HeroBanner from "components/HeroBanner";
 import ActiveSection from "components/ActiveSection";
 import AlergyInformation from "components/AlergyInformation";
+import { useGetActiveMenuSection } from "hooks/useGetActiveMenuSection";
+import { TSection } from "model/restaurantMenu";
 
 function MenuPage() {
   const { t } = useTranslation();
@@ -17,11 +19,13 @@ function MenuPage() {
   const { data: restaurantData, loading: restaurantLoading } =
     useGetRestaurant();
 
+  const { currentActiveSection } = useGetActiveMenuSection(
+    menuData ? menuData.sections : null
+  );
+
   if (menuLoading || restaurantLoading) {
     return <div>Loading...</div>;
   }
-
-  const menuSections = menuData && menuData.sections;
 
   return (
     <div>
@@ -29,8 +33,8 @@ function MenuPage() {
       <HeroBanner />
       {/*  TODO: */}
       <Input />
-      <MenuSectionMenu menuSections={menuSections} />
-      <ActiveSection />
+      <MenuSectionMenu menuSections={menuData ? menuData.sections : null} />
+      <ActiveSection currentActiveSection={currentActiveSection} />
       <AlergyInformation />
     </div>
   );

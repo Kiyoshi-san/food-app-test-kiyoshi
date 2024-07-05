@@ -1,4 +1,4 @@
-.menuItemContainer{
+.menuSectionItemContainer{
     padding: 14px 16px;
     ul {
         display: flex;
@@ -13,25 +13,5 @@
         li a.active {
             text-decoration: underline;
         }
-    }
-
-    .hamburger {
-        position: absolute;
-        right: 0;
-        height: 2px;
-        width: 15px;
-        background: var(--bg-primary-color);
-        opacity: 1;
-        transform: all 0.3s;
-    }
-
-    .hamburger:before,
-    .hamburger:after {
-        content: '';
-        height: 2px;
-        width: 15px;
-        background: var(--bg-primary-color);
-        position: absolute;
-        transition: 0.5s ease-in-out;
     }
 }

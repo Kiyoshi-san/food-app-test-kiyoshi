@@ -21,7 +21,7 @@ const MenuSectionItem = ({ menuSections }: TSections) => {
   };
 
   return (
-    <div
+    <section
       data-testid="menuSection-item"
       className={style.menuSectionItemContainer}
     >
@@ -35,12 +35,16 @@ const MenuSectionItem = ({ menuSections }: TSections) => {
                 className={activeMenuSection === section.id ? style.active : ""}
                 onClick={() => handleMenuSectionClick(section.id)}
               >
-                {section.name}
+                <img
+                  src={section.images[0].image}
+                  alt={section?.description || ""}
+                />
+                <p>{section.name}</p>
               </li>
             ))}
         </ul>
       </nav>
-    </div>
+    </section>
   );
 };
 

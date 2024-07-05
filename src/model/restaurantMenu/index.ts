@@ -3,7 +3,7 @@ type TImage = {
   image: string;
 };
 
-type TItem = {
+export type TItem = {
   id: number;
   name: string;
   description: string;
@@ -25,6 +25,7 @@ export type TSection = {
   visible: number;
   images: TImage[];
   items: TItem[];
+  price?: number;
 };
 
 export type TStore = {
