@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-export const getPage = () => {
+export const useGetPage = () => {
   const { pathname } = useLocation();
   let page = "";
 

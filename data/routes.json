@@ -1,0 +1,4 @@
+{
+    "/challenge": "/menu",
+    "restaurant": "challenge/venue/:id"
+}
