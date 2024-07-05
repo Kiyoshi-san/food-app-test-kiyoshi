@@ -10,8 +10,15 @@ import "./utils/i18n";
 
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import NotFoundPage from "pages/NotFoundPage";
+import UnderConstruction from "pages/UnderConstruction";
 
-const router = createBrowserRouter([{ path: "/", element: <Menu /> }]);
+const router = createBrowserRouter([
+  { path: "/", element: <Menu />, errorElement: <NotFoundPage /> },
+  { path: "/menu", element: <Menu /> },
+  { path: "/signin", element: <UnderConstruction /> },
+  { path: "/contact", element: <UnderConstruction /> },
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

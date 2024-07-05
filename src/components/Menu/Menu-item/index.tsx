@@ -1,21 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./menu-item.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { selectMenu } from "../../../redux/menu/slice";
+// import { useDispatch, useSelector } from "react-redux";
 import type { RootState, TMenuItem } from "model/menu";
+import { Link } from "react-router-dom";
+import { getPage } from "hooks/page";
 
 type TMenuItems = {
   menuItems: TMenuItem[];
 };
 
 const MenuItem = ({ menuItems }: TMenuItems) => {
-  const dispatch = useDispatch();
-
-  const { activeMenu } = useSelector((state: RootState) => state.menuReducer);
-
-  const handleMenuClick = (menu: string) => {
-    dispatch(selectMenu(menu));
-  };
+  const page = getPage();
 
   return (
     <div data-testid="menu-item" className={style.menuItemContainer}>
@@ -23,12 +18,13 @@ const MenuItem = ({ menuItems }: TMenuItems) => {
       <nav>
         <ul>
           {menuItems.map((item) => (
-            <li
-              key={item.key}
-              onClick={() => handleMenuClick(item.key)}
-              className={activeMenu === item.key ? style.active : ""}
-            >
-              {item.text}
+            <li key={item.key}>
+              <Link
+                to={`/${item.key}`}
+                className={page === item.key ? style.active : ""}
+              >
+                {item.text}
+              </Link>
             </li>
           ))}
         </ul>
