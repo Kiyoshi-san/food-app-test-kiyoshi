@@ -10,15 +10,17 @@ export const useGetRestaurantMenu = () => {
   useEffect(() => {
     (async () => {
       try {
-        const resp = await customFetch("/menu", {
+        const resp = await customFetch("/challenge/menu", {
+          // const resp = await customFetch("/menu", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
+          mode: "no-cors",
         });
         // TODO:
-        // const result: TStore = await resp.json();
-        const result: TStore = await resp;
+        const result: TStore = await resp.json();
+        // const result: TStore = await resp;
         setData(result);
       } catch (error) {
         console.error(error);
