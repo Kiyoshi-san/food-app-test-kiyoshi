@@ -1,4 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { TMenuSectionState } from "model/menuSection";
+
+export type RootMenuSectionState = {
+  menuSectionReducer: TMenuSectionState;
+};
 
 const initialState = {
   activeMenuSection: 242403, // Burgers id

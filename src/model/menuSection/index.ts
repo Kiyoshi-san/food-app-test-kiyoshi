@@ -1,9 +1,5 @@
-type TMenuSectionState = {
+export type TMenuSectionState = {
   activeMenuSection: number;
-};
-
-export type RootState = {
-  menuSectionReducer: TMenuSectionState;
 };
 
 export type TMenuSectionItem = {

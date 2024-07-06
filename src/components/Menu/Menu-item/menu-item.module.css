@@ -15,23 +15,47 @@
         }
     }
 
-    .hamburger {
-        position: absolute;
-        right: 0;
-        height: 2px;
-        width: 15px;
-        background: var(--bg-primary-color);
-        opacity: 1;
-        transform: all 0.3s;
-    }
+    .hamburgerContainer {
+        position: absolute;;
+        height: 16px;
+        width: 19px;
+        right: 30px;
+        top: 35%;
+        cursor: pointer;
+        .hamburger, .hamburger::before, .hamburger::after {
+            position: absolute;
+            top: 50%;
+            border-radius: 2px;
+            height: 2px;
+            width: 15px;
+            background: var(--bg-primary-color);
+            transform: rotate(0);
+            opacity: 1;
+            transition: all 0.3s;
+        }    
+        .hamburger:before,
+        .hamburger:after {
+            content: '';
+            transition: 0.5s ease-in-out;
+        }
+        .hamburger:before {
+            top: -5px;
+        }
+        .hamburger:after {
+            top: 5px;
+        }
 
-    .hamburger:before,
-    .hamburger:after {
-        content: '';
-        height: 2px;
-        width: 15px;
-        background: var(--bg-primary-color);
-        position: absolute;
-        transition: 0.5s ease-in-out;
+        
+        .hamburger.active {
+            background-color: var(--bg-nav-color);
+        }
+        .active:before {
+            top: 0px;
+            transform: rotate(45deg);
+        }
+        .active:after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
     }
 }

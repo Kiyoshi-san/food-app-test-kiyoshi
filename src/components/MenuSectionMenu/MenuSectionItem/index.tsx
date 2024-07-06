@@ -1,8 +1,10 @@
 import React from "react";
 import style from "./MenuSectionItem.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { selectMenuSection } from "../../../redux/menuSection/slice";
-import type { RootState } from "model/menuSection";
+import {
+  RootMenuSectionState,
+  selectMenuSection,
+} from "../../../redux/menuSection/slice";
 import { TSection } from "model/restaurantMenu";
 
 type TSections = {
@@ -13,7 +15,7 @@ const MenuSectionItem = ({ menuSections }: TSections) => {
   const dispatch = useDispatch();
 
   const { activeMenuSection } = useSelector(
-    (state: RootState) => state.menuSectionReducer
+    (state: RootMenuSectionState) => state.menuSectionReducer
   );
 
   const handleMenuSectionClick = (menuSection: number) => {
