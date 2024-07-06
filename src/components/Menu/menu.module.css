@@ -1,5 +1,5 @@
 .menuContainer {
     position: relative;
-    background-color: var(--primary-color);
+    background-color: var(--bg-nav-color);
     max-width: var(--breakpoint-desktop);
 }

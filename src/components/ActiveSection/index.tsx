@@ -7,7 +7,6 @@ type TActiveSection = {
 };
 
 const ActiveSection = ({ currentActiveSection }: TActiveSection) => {
-  console.log(currentActiveSection);
   return (
     <section>
       <h2>{currentActiveSection?.name}</h2>

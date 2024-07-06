@@ -1,4 +1,4 @@
-type TWebSettings = {
+export type TWebSettings = {
   id: number;
   venueId: number;
   bannerImage: string;

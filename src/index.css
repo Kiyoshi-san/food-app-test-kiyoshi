@@ -1,7 +1,9 @@
 :root {
   --primary-color: #4F372F;
+  --primary-color-hover: #4f372f;
   --bg-primary-color: #FFFFFF;
   --bg-secondary-color: #EEEEEE;
+  --bg-nav-color: #EEEEEE;
   --bg-tertiary-color: #F8F9FA;
   --success-color: #28a745;
   --danger-color: #dc3545;

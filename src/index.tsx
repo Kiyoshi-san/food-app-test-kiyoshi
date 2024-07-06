@@ -12,6 +12,13 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import NotFoundPage from "pages/NotFoundPage";
 import UnderConstruction from "pages/UnderConstruction";
+import { useNewTheme } from "hooks/theme/slice";
+
+// Create a component to fetch and apply the theme
+const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+  useNewTheme();
+  return <>{children}</>;
+};
 
 const router = createBrowserRouter([
   { path: "/", element: <Menu />, errorElement: <NotFoundPage /> },
@@ -23,10 +30,13 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>
 );
