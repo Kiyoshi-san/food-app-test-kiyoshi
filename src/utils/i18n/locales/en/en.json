@@ -3,5 +3,8 @@
     "signin": "Sign In",
     "contact": "Contact",
     "searchMenuItems": "Search menu items",
-    "viewAllergyInfo": "View allergy information"
+    "viewAllergyInfo": "View allergy information",
+    "currency": "USD",
+    "locale": "en-US"
+
 }

@@ -3,5 +3,7 @@
     "signin": "Entrar",
     "contact": "Contato",
     "searchMenuItems": "Encontre os ítens do menu",
-    "viewAllergyInfo": "Verificar informações alérgicas"
+    "viewAllergyInfo": "Verificar informações alérgicas",
+    "currency": "BRL",
+    "locale": "pt-BR"
 }
