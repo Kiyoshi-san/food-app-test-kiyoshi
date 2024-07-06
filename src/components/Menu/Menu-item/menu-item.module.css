@@ -1,61 +1,111 @@
 .menuItemContainer{
-    padding: 14px 16px;
-    ul {
-        display: flex;
-        li {
-            list-style-type: none;
-            a {
-                cursor: pointer;
-                color: var(--light-color-text);
-                text-decoration: none;
+    position: relative;
+    max-width: var(--breakpoint-desktop);
+    margin: 0 auto;
+    padding: 14px 16px 0;
+    .menuItemsContainer {
+        ul {
+            display: flex;
+            justify-content: center;
+            li {
+                flex: 1;
+                list-style-type: none;
+                max-width: 232px;
+                text-align: center;
+                padding-bottom: 10px;
+                a {
+                    cursor: pointer;
+                    color: var(--light-color-text);
+                    text-decoration: none;
+                    font-size: var(--font-xm-size);
+                    font-weight: var(--regular);
+                }
             }
-        }
-        li a.active {
-            text-decoration: underline;
+            li.active {
+                border-bottom: solid 5px white;
+            }
         }
     }
 
     .hamburgerContainer {
-        position: absolute;;
-        height: 16px;
-        width: 19px;
-        right: 30px;
-        top: 35%;
-        cursor: pointer;
-        .hamburger, .hamburger::before, .hamburger::after {
-            position: absolute;
-            top: 50%;
-            border-radius: 2px;
-            height: 2px;
-            width: 15px;
-            background: var(--bg-primary-color);
-            transform: rotate(0);
-            opacity: 1;
-            transition: all 0.3s;
-        }    
-        .hamburger:before,
-        .hamburger:after {
-            content: '';
-            transition: 0.5s ease-in-out;
+        display: none;        
+    }
+    .titleContainer {
+        display: none;
+        h1 {
+            font-size: var(--font-m-size);
+            color: var(--white);
         }
-        .hamburger:before {
-            top: -5px;
-        }
-        .hamburger:after {
-            top: 5px;
+    }
+}
+
+@media (max-width: 393px) {
+    .menuItemContainer{
+        padding: 14px 16px;
+        .menuItemsContainer {
+            display: none;
+            ul {
+                li {
+                    list-style-type: none;
+    
+                    a {
+                        
+                    }
+                }
+                li a.active {
+                    text-decoration: underline;
+    
+                }
+            }
         }
 
-        
-        .hamburger.active {
-            background-color: var(--bg-nav-color);
+        .hamburgerContainer {
+            position: absolute;
+            display: block;
+            height: 16px;
+            width: 19px;
+            right: 30px;
+            top: 35%;
+            cursor: pointer;
+            .hamburger, .hamburger::before, .hamburger::after {
+                position: absolute;
+                top: 50%;
+                border-radius: 2px;
+                height: 2px;
+                width: 15px;
+                background: var(--bg-primary-color);
+                transform: rotate(0);
+                opacity: 1;
+                transition: all 0.3s;
+            }    
+            .hamburger:before,
+            .hamburger:after {
+                content: '';
+                transition: 0.5s ease-in-out;
+            }
+            .hamburger:before {
+                top: -5px;
+            }
+            .hamburger:after {
+                top: 5px;
+            }
+    
+            
+            .hamburger.active {
+                background-color: var(--bg-nav-color);
+            }
+            .active:before {
+                top: 0px;
+                transform: rotate(45deg);
+            }
+            .active:after {
+                top: 0;
+                transform: rotate(-45deg);
+            }
         }
-        .active:before {
-            top: 0px;
-            transform: rotate(45deg);
-        }
-        .active:after {
-            top: 0;
-            transform: rotate(-45deg);
+        .titleContainer {
+            display: block;
+            text-align: center;
         }
     }
 }

@@ -7,6 +7,7 @@
   --border-color: #8A94A4;
   --strong-color: #121212;
   --light-text: #464646;
+  --white: #FFFFFF;
   --bg-tertiary-color: #F8F9FA;
   --success-color: #28a745;
   --danger-color: #dc3545;
@@ -20,6 +21,8 @@
 
   --font-roboto: 'Roboto', sans-serif;
   --font-regular-size: 1rem;
+  --font-m-size: 1.125rem;
+  --font-xm-size: 1.25rem;
   --font-x-size: 1.5rem;
   --light: 300;
   --regular: 400;
