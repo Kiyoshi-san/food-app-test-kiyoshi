@@ -1,5 +1,5 @@
 import React from "react";
-import MenuItem from "./Menu-item";
+import MenuItem from "./MenuItem";
 import style from "./menu.module.css";
 
 import { useTranslation } from "react-i18next";

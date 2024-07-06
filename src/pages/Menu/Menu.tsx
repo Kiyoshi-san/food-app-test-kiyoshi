@@ -12,6 +12,8 @@ import AlergyInformation from "components/AlergyInformation";
 import { useGetActiveMenuSection } from "hooks/useGetActiveMenuSection";
 import Search from "components/Search";
 import style from "./menu.module.css";
+import Modal from "components/ui/Modal";
+import ProductInfo from "components/ProductInfo";
 
 function MenuPage() {
   const { t } = useTranslation();
@@ -30,6 +32,9 @@ function MenuPage() {
 
   return (
     <section className={style.container}>
+      <Modal>
+        <ProductInfo />
+      </Modal>
       <Menu />
       <HeroBanner image={restaurantData?.webSettings.bannerImage || ""} />
       {/*  TODO: */}
