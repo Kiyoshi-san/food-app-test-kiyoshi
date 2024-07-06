@@ -4,10 +4,13 @@
   --bg-primary-color: #FFFFFF;
   --bg-secondary-color: #EEEEEE;
   --bg-nav-color: #EEEEEE;
+  --border-color: #8A94A4;
+  --strong-color: #121212;
+  --light-text: #464646;
   --bg-tertiary-color: #F8F9FA;
   --success-color: #28a745;
   --danger-color: #dc3545;
-  --warning-color: #ffc107;
+  --warning-color: #FFC107;
   --info-color: #17a2b8;
   --dark-color: #343a40;
   --light-color: #f8f9fa;
@@ -16,10 +19,13 @@
   --opacity: 0.65;
 
   --font-roboto: 'Roboto', sans-serif;
-  --regular: 300;
-  --medium: 400;
-  --semi-bold: 500;
-  --bold: 600;
+  --font-regular-size: 1rem;
+  --font-x-size: 1.5rem;
+  --light: 300;
+  --regular: 400;
+  --medium: 500;
+  --semi-bold: 600;
+  --bold: 700;
   
   --breakpoint-mobile: 393px;
   --breakpoint-desktop: 1024px;
@@ -39,6 +45,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: var(--font-roboto);
+  h3 {
+    font-size: var(--font-regular-size);
+    color: var(--strong-color);
+  }
 }

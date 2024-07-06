@@ -1,0 +1,35 @@
+.container {
+    .headerContainer {
+        position: relative;
+        margin-bottom: 25px;
+        cursor: pointer;
+        h2 {
+            font-size: var(--font-x-size);
+            font-weight: var(--medium);
+        }
+        .carrot {
+            position: absolute;
+            top: 50%;
+            left: 97%;
+            border: solid var(--primary-color);
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 4px;
+            transform: rotate(-135deg);
+            -webkit-transform: rotate(-135deg);
+            transition: transform 0.3s;
+        }
+        .carrot.active {
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);                
+        }
+    }
+    .bodyContainer {
+        overflow: hidden;
+        transition: all 0.3s;
+        max-height: 1000px;
+    }
+    .bodyContainer.collapse {
+        max-height: 0;
+    }
+}

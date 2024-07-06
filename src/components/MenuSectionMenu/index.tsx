@@ -1,6 +1,7 @@
 import React from "react";
 import MenuSectionItem from "./MenuSectionItem";
 import { TSection } from "model/restaurantMenu";
+import style from "./menu-section-menu.module.css";
 
 type TMenuSection = {
   menuSections: TSection[] | null;
@@ -8,9 +9,9 @@ type TMenuSection = {
 
 const MenuSectionMenu = ({ menuSections }: TMenuSection) => {
   return (
-    <div>
+    <section className={style.container}>
       <MenuSectionItem menuSections={menuSections} />
-    </div>
+    </section>
   );
 };
 

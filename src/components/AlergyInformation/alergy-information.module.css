@@ -1,0 +1,15 @@
+.container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    background-color: var(--light-color);
+    bottom: 0;
+    width: 100%;
+    transform: translate(-16px, 0);
+    a {
+        color: var(--primary-color);
+        font-size: var(--font-regular-size);
+        font-weight: var(--bold);
+    }
+}

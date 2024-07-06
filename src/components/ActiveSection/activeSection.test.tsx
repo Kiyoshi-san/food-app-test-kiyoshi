@@ -2,7 +2,7 @@ import React from "react";
 import renderComponent from "utils/testingTools";
 import { screen } from "@testing-library/react";
 
-import ActiveSection from ".";
+import ActiveSection from "./";
 
 describe("ActiveSection", () => {
   const currentActiveSection = {

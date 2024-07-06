@@ -5,12 +5,13 @@ import MenuSectionMenu from "components/MenuSectionMenu";
 import { useGetRestaurantMenu } from "hooks/restaurant/useGetRestaurantMenu";
 import { useGetRestaurant } from "hooks/restaurant/useGetRestaurant";
 import { useTranslation } from "react-i18next";
-import Input from "components/Input";
+import Input from "components/ui/Input";
 import HeroBanner from "components/HeroBanner";
 import ActiveSection from "components/ActiveSection";
 import AlergyInformation from "components/AlergyInformation";
 import { useGetActiveMenuSection } from "hooks/useGetActiveMenuSection";
-import { TSection } from "model/restaurantMenu";
+import Search from "components/Search";
+import style from "./menu.module.css";
 
 function MenuPage() {
   const { t } = useTranslation();
@@ -28,15 +29,17 @@ function MenuPage() {
   }
 
   return (
-    <div>
+    <section className={style.container}>
       <Menu />
-      <HeroBanner />
+      <HeroBanner image={restaurantData?.webSettings.bannerImage || ""} />
       {/*  TODO: */}
-      <Input />
-      <MenuSectionMenu menuSections={menuData ? menuData.sections : null} />
-      <ActiveSection currentActiveSection={currentActiveSection} />
-      <AlergyInformation />
-    </div>
+      <div className={style.belowSection}>
+        <Search />
+        <MenuSectionMenu menuSections={menuData ? menuData.sections : null} />
+        <ActiveSection currentActiveSection={currentActiveSection} />
+        <AlergyInformation />
+      </div>
+    </section>
   );
 }
 

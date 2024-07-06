@@ -1,21 +1,36 @@
 import { TSection } from "model/restaurantMenu";
-import React from "react";
+import React, { useState } from "react";
 import ActiveSectionItem from "./ActiveSectionItem";
+import style from "./active-section.module.css";
 
 type TActiveSection = {
   currentActiveSection: TSection | undefined;
 };
 
 const ActiveSection = ({ currentActiveSection }: TActiveSection) => {
+  const [activeArrow, setActiveArrow] = useState<boolean>(true);
+
+  const handleActiveArrow = () => {
+    console.log(activeArrow);
+    setActiveArrow((state) => !state);
+  };
+
   return (
-    <section>
-      <h2>{currentActiveSection?.name}</h2>
-      {currentActiveSection?.items.map((currActSecItem) => (
-        <ActiveSectionItem
-          key={currActSecItem.id}
-          currActSecItem={currActSecItem}
-        />
-      ))}
+    <section className={style.container}>
+      <div className={style.headerContainer} onClick={handleActiveArrow}>
+        <h2>{currentActiveSection?.name}</h2>
+        <i className={`${style.carrot} ${activeArrow ? style.active : ""}`}></i>
+      </div>
+      <div
+        className={`${style.bodyContainer} ${!activeArrow ? style.collapse : ""}`}
+      >
+        {currentActiveSection?.items.map((currActSecItem) => (
+          <ActiveSectionItem
+            key={currActSecItem.id}
+            currActSecItem={currActSecItem}
+          />
+        ))}
+      </div>
     </section>
   );
 };

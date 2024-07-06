@@ -6,7 +6,7 @@ import HeroBanner from ".";
 
 describe("HeroBanner", () => {
   it("Should render the component properly", () => {
-    const { container } = renderComponent(<HeroBanner />);
+    const { container } = renderComponent(<HeroBanner image="" />);
 
     expect(container).toBeInTheDocument();
   });

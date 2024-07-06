@@ -21,30 +21,27 @@ const MenuSectionItem = ({ menuSections }: TSections) => {
   };
 
   return (
-    <section
+    <div
       data-testid="menuSection-item"
       className={style.menuSectionItemContainer}
     >
-      <div className={style.hamburger}></div>
-      <nav>
-        <ul>
-          {!!menuSections &&
-            menuSections.map((section) => (
-              <li
-                key={section.id}
-                className={activeMenuSection === section.id ? style.active : ""}
-                onClick={() => handleMenuSectionClick(section.id)}
-              >
-                <img
-                  src={section.images[0].image}
-                  alt={section?.description || ""}
-                />
-                <p>{section.name}</p>
-              </li>
-            ))}
-        </ul>
-      </nav>
-    </section>
+      <ul>
+        {!!menuSections &&
+          menuSections.map((section) => (
+            <li
+              key={section.id}
+              className={activeMenuSection === section.id ? style.active : ""}
+              onClick={() => handleMenuSectionClick(section.id)}
+            >
+              <img
+                src={section.images[0].image}
+                alt={section?.description || ""}
+              />
+              <p>{section.name}</p>
+            </li>
+          ))}
+      </ul>
+    </div>
   );
 };
 

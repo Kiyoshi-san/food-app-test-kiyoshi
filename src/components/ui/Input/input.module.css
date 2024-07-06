@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    gap: 0 10px;
+    width: 100%;
+    border: solid 1px var(--border-color);
+    border-radius: 7.29px;
+    margin: 16px 0;
+    padding: 0 10px;
+    img {
+        position: relative;
+    }
+    input {
+        border: 0;
+        outline: none;
+        height: 40px;
+        font-size: var(--font-regular-size);
+    }
+}

@@ -1,4 +1,5 @@
-p {
-  font-family: var(--font-roboto);
-  color: var(--primary-color)
+.container {
+  .belowSection {
+    padding: 0 16px;
+  }
 }

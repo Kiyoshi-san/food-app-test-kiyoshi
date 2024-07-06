@@ -14,9 +14,9 @@ const Menu = () => {
   ];
 
   return (
-    <div className={style.menuContainer}>
+    <section className={style.menuContainer}>
       <MenuItem menuItems={menuItems} />
-    </div>
+    </section>
   );
 };
 
