@@ -3,6 +3,25 @@ type TImage = {
   image: string;
 };
 
+type TModifierItem = {
+  id: number;
+  name: string;
+  price: number;
+  maxChoices: number;
+  position: number;
+  visible: number;
+  availabilityType: string;
+  available: true;
+};
+
+type TModifier = {
+  id: number;
+  name: string;
+  minChoices: number;
+  maxChoices: number;
+  items: TModifierItem[];
+};
+
 export type TItem = {
   id: number;
   name: string;
@@ -13,6 +32,7 @@ export type TItem = {
   visible: number;
   availabilityType: string;
   sku: string;
+  modifiers: TModifier[];
   images: TImage[];
   available: boolean;
 };

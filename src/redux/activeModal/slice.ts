@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
+import React from "react";
 
 export type RootActiveModal = {
   changeModalActiveReducer: {
     activeModal: boolean;
+    modalContent: React.ReactNode;
   };
 };
 
 const initialState = {
   activeModal: false,
+  modalContent: null,
 };
 
 const activeModalSlice = createSlice({
@@ -17,9 +20,13 @@ const activeModalSlice = createSlice({
     changeActiveModal: (state = initialState, action) => {
       state.activeModal = action.payload;
     },
+    changeModalContent: (state = initialState, action) => {
+      state.modalContent = action.payload;
+    },
   },
 });
 
-export const { changeActiveModal } = activeModalSlice.actions;
+export const { changeActiveModal, changeModalContent } =
+  activeModalSlice.actions;
 
 export default activeModalSlice.reducer;

@@ -3,11 +3,13 @@ import { useTranslation } from "react-i18next";
 import { TItem } from "model/restaurantMenu";
 import style from "./active-section-item.module.css";
 import { currencyConversor } from "utils/currency";
-import Modal from "components/ui/Modal";
 import ModalActiveItem from "../ModalActiveItem";
 
-import { useDispatch, useSelector } from "react-redux";
-import { changeActiveModal } from "../../../redux/activeModal/slice";
+import { useDispatch } from "react-redux";
+import {
+  changeActiveModal,
+  changeModalContent,
+} from "../../../redux/activeModal/slice";
 
 type TActiveSectionItem = {
   currActSecItem: TItem | undefined;
@@ -20,9 +22,15 @@ const ActiveSectionItem = ({ currActSecItem }: TActiveSectionItem) => {
   const locale = t("locale") || "en-US"; // fallback to "en-US"
   const currency = t("currency") || "USD"; // fallback to "USD"
 
-  const handleOpenModal = (open: boolean) => {
-    console.log("aqui");
+  const handleOpenModal = (open: boolean, currActSecItem: TItem) => {
     dispatch(changeActiveModal(open));
+
+    if (currActSecItem) {
+      // Creating the component from clicked component
+      const component = <ModalActiveItem currActSecItem={currActSecItem} />;
+
+      dispatch(changeModalContent(component));
+    }
   };
 
   const convertedPrice =
@@ -32,7 +40,7 @@ const ActiveSectionItem = ({ currActSecItem }: TActiveSectionItem) => {
     <div
       key={currActSecItem?.id}
       className={style.container}
-      onClick={() => handleOpenModal(true)}
+      onClick={() => handleOpenModal(true, currActSecItem as TItem)}
     >
       <div className={style.descriptionContainer}>
         <h3>{currActSecItem?.name}</h3>
@@ -52,9 +60,6 @@ const ActiveSectionItem = ({ currActSecItem }: TActiveSectionItem) => {
           )}
         </div>
       )}
-      <Modal>
-        <ModalActiveItem currActSecItem={currActSecItem} />
-      </Modal>
     </div>
   );
 };

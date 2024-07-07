@@ -1,29 +1,14 @@
 import React from "react";
 import renderComponent from "utils/testingTools";
 import ModalActiveItem from "./";
+import { menuSectionsTest } from "utils/testingTools/testingData";
 
 describe("ModalActiveItem", () => {
-  const items = {
-    id: 1,
-    name: "test",
-    description: "test",
-    alcoholic: 1,
-    price: 1,
-    position: 1,
-    visible: 1,
-    availabilityType: "test",
-    sku: "test",
-    images: [
-      {
-        id: 1,
-        image: "teste",
-      },
-    ],
-    available: true,
-  };
+  const items = menuSectionsTest[0].items;
+
   it("should render ModalActiveItem", () => {
     const { container } = renderComponent(
-      <ModalActiveItem currActSecItem={items} />
+      <ModalActiveItem currActSecItem={items[0]} />
     );
   });
 });

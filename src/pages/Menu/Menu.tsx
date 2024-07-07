@@ -1,4 +1,5 @@
 import React, { memo, useState } from "react";
+import { useSelector } from "react-redux";
 import "./menu.module.css";
 import Menu from "components/Menu";
 import MenuSectionMenu from "components/MenuSectionMenu";
@@ -14,8 +15,13 @@ import Search from "components/Search";
 import style from "./menu.module.css";
 import Modal from "components/ui/Modal";
 import ProductInfo from "components/ProductInfo";
+import { RootActiveModal } from "redux/activeModal/slice";
 
 function MenuPage() {
+  const { modalContent } = useSelector(
+    (state: RootActiveModal) => state.changeModalActiveReducer
+  );
+
   const { t } = useTranslation();
 
   const { data: menuData, loading: menuLoading } = useGetRestaurantMenu();
@@ -32,6 +38,7 @@ function MenuPage() {
 
   return (
     <section className={style.container}>
+      <Modal>{modalContent}</Modal>
       <Menu />
       <HeroBanner image={restaurantData?.webSettings.bannerImage || ""} />
       {/*  TODO: */}
