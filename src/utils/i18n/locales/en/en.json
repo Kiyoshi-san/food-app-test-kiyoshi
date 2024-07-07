@@ -5,6 +5,8 @@
     "searchMenuItems": "Search menu items",
     "viewAllergyInfo": "View allergy information",
     "currency": "USD",
-    "locale": "en-US"
+    "locale": "en-US",
+    "selectOptions_one": "Select {{count}} option",
+    "selectOptions_other": "Select {{count}} options"
 
 }

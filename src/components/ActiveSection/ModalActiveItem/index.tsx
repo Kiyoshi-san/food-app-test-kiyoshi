@@ -1,12 +1,15 @@
 import { TItem } from "model/restaurantMenu";
 import React from "react";
 import style from "./modal-active-item.module.css";
+import { useTranslation } from "react-i18next";
+import ModifierOption from "./ModifierOption";
 
 type TActiveSectionItem = {
   currActSecItem: TItem | undefined;
 };
 
 const ModalActiveItem = ({ currActSecItem }: TActiveSectionItem) => {
+  const { t } = useTranslation();
   return (
     <section className={style.container}>
       {!!currActSecItem?.images.length && (
@@ -23,13 +26,17 @@ const ModalActiveItem = ({ currActSecItem }: TActiveSectionItem) => {
         </div>
       </div>
       <div className={style.modifiersContainer}>
-        <div className={style.chooseOptionContainer}>
-          {currActSecItem?.modifiers?.map((modifier) => (
-            <div key={modifier.id} className={style.title}>
+        {currActSecItem?.modifiers?.map((modifier) => (
+          <div key={modifier.id}>
+            <div className={style.chooseOptionContainer}>
               <h2>{modifier.name}</h2>
+              <p>{t("selectOptions", { count: modifier.maxChoices })}</p>
             </div>
-          ))}
-        </div>
+            <div className={style.optionsContainer}>
+              <ModifierOption options={modifier.items} />
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

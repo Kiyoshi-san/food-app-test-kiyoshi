@@ -7,10 +7,21 @@ type TInput = {
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const Input = (props: TInput) => {
+  const { type = "text" } = props;
   return (
     <div className={style.container}>
-      {props.imgIcon && <img src={props.imgIcon} />}
-      <input type="text" placeholder={t("searchMenuItems")} {...props} />
+      {type === "radio" ? (
+        <div className={style.radioContainer}>
+          <input type="radio" {...props} />
+        </div>
+      ) : type === "text" ? (
+        <div className={style.textContainer}>
+          {props.imgIcon && <img src={props.imgIcon} />}
+          <input type={type} placeholder={t("searchMenuItems")} {...props} />
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

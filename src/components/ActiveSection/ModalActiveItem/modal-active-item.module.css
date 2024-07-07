@@ -1,3 +1,47 @@
 .container {
-    
+    .imageContainer {
+        margin-bottom: 8px;
+        img {
+            width: 100%;
+        }
+    }
+    .descriptionContainer {
+        background-color: var(--bg-primary-color);
+        padding: 16px;
+        .title {
+            margin-bottom: 8px;
+            h2 {
+                font-size: var(--font-x-size);
+                font-weight: var(--bold);
+                color: var(--light-text);
+            }
+        }
+        .description {
+            p {
+                font-size: var(--font-regular-size);
+                font-weight: var(--regular);
+                color: var(--light-text);
+            }
+        }
+    }
+    .modifiersContainer {
+        .chooseOptionContainer {
+            background-color: var(--light-bg-grey);
+            padding: 16px;
+            h2 {
+                font-size: var(--font-regular-size);
+                font-weight: var(--bold);
+                color: var(--light-text);
+            }
+            p {
+                font-size: var(--font-regular-size);
+                font-weight: var(--regular);
+                color: var(--light-text);
+            }
+        }
+        .optionsContainer {
+            background-color: var(--bg-primary-color);
+            padding: 16px;
+        }
+    }
 }

@@ -10,6 +10,7 @@ import {
   changeActiveModal,
   changeModalContent,
 } from "../../../redux/activeModal/slice";
+import { useFormatPrice } from "hooks/currency/useFormatPrice";
 
 type TActiveSectionItem = {
   currActSecItem: TItem | undefined;
@@ -17,10 +18,7 @@ type TActiveSectionItem = {
 
 const ActiveSectionItem = ({ currActSecItem }: TActiveSectionItem) => {
   const dispatch = useDispatch();
-
-  const { t } = useTranslation();
-  const locale = t("locale") || "en-US"; // fallback to "en-US"
-  const currency = t("currency") || "USD"; // fallback to "USD"
+  const formatPrice = useFormatPrice;
 
   const handleOpenModal = (open: boolean, currActSecItem: TItem) => {
     dispatch(changeActiveModal(open));
@@ -33,9 +31,6 @@ const ActiveSectionItem = ({ currActSecItem }: TActiveSectionItem) => {
     }
   };
 
-  const convertedPrice =
-    currencyConversor(currActSecItem?.price || 0, locale) || 0;
-
   return (
     <div
       key={currActSecItem?.id}
@@ -46,12 +41,7 @@ const ActiveSectionItem = ({ currActSecItem }: TActiveSectionItem) => {
         <h3>{currActSecItem?.name}</h3>
         <span>{currActSecItem?.description}</span>
         {/* TODO: Adjust the Currency */}
-        <span>
-          {convertedPrice.toLocaleString(t("locale"), {
-            style: "currency",
-            currency: currency,
-          })}
-        </span>
+        <span>{formatPrice(currActSecItem?.price)}</span>
       </div>
       {!!currActSecItem?.images?.length && currActSecItem?.images[0]?.image && (
         <div className={style.imgContainer}>

@@ -3,7 +3,7 @@ type TImage = {
   image: string;
 };
 
-type TModifierItem = {
+export type TModifierItem = {
   id: number;
   name: string;
   price: number;

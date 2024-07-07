@@ -5,5 +5,7 @@
     "searchMenuItems": "Encontre os ítens do menu",
     "viewAllergyInfo": "Verificar informações alérgicas",
     "currency": "BRL",
-    "locale": "pt-BR"
+    "locale": "pt-BR",
+    "selectOptions_one": "Selecione {{count}} opção",
+    "selectOptions_other": "Selecione {{count}} opções"
 }

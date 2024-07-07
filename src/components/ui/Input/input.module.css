@@ -1,19 +1,38 @@
 .container {
-    display: flex;
-    gap: 0 10px;
-    width: 100%;
-    border: solid 1px var(--border-color);
-    border-radius: 7.29px;
-    margin: 16px 0;
-    padding: 0 10px;
-    img {
-        position: relative;
-    }
-    input {
-        border: 0;
-        outline: none;
-        height: 40px;
+    .textContainer {
+        display: flex;
+        gap: 0 10px;
         width: 100%;
-        font-size: var(--font-regular-size);
+        border: solid 1px var(--border-color);
+        border-radius: 7.29px;
+        margin: 16px 0;
+        padding: 0 10px;
+        img {
+            position: relative;
+        }
+        input {
+            border: 0;
+            outline: none;
+            height: 40px;
+            width: 100%;
+            font-size: var(--font-regular-size);
+        }
+    }
+    .radioContainer {
+        input[type="radio"] {
+            /* The native appearance is hidden */
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 1px var(--primary-color);
+            box-shadow: inset 0px 0px 0px 3px var(--primary-color);
+            cursor: pointer;
+        }
+        input[type="radio"]:checked {
+            box-shadow: inset 0px 0px 0px 3px var(--primary-color);
+            border: 3px solid var(--primary-color);
+        }
     }
 }
