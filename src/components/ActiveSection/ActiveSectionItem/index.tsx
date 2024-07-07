@@ -2,7 +2,6 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { TItem } from "model/restaurantMenu";
 import style from "./active-section-item.module.css";
-import i18n from "utils/i18n";
 import { currencyConversor } from "utils/currency";
 
 type TActiveSection = {
@@ -10,7 +9,7 @@ type TActiveSection = {
 };
 
 const ActiveSection = ({ currActSecItem }: TActiveSection) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const convertedPrice =
     currencyConversor(currActSecItem?.price || 0, t("locale")) || 0;
 

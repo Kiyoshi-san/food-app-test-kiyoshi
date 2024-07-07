@@ -11,7 +11,6 @@ const ActiveSection = ({ currentActiveSection }: TActiveSection) => {
   const [activeArrow, setActiveArrow] = useState<boolean>(true);
 
   const handleActiveArrow = () => {
-    console.log(activeArrow);
     setActiveArrow((state) => !state);
   };
 

@@ -32,9 +32,10 @@ const MenuItem = ({ menuItems }: TMenuItems) => {
   };
 
   return (
-    <div data-testid="menu-item" className={style.menuItemContainer}>
+    <div className={style.menuItemContainer}>
       <div className={style.hamburgerContainer} onClick={handleMenuClick}>
         <div
+          data-testid="menu-item"
           className={`${style.hamburger} ${navMenuActive ? style.active : ""}`}
         ></div>
       </div>

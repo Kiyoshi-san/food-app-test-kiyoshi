@@ -15,7 +15,7 @@ describe("MenuItem", () => {
   it("should active item when selected", () => {
     renderComponent(<MenuItem menuItems={menuItems} />);
 
-    const itemMenu = screen.getByText(/menu/i);
+    const itemMenu = screen.queryByTestId("menu-item") as HTMLElement;
 
     fireEvent.click(itemMenu);
 

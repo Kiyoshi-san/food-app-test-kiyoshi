@@ -15,9 +15,6 @@ const navMenuActiveSlice = createSlice({
   initialState,
   reducers: {
     activeNavMenu: (state = initialState, action) => {
-      console.log("aaa");
-      console.log(action.payload);
-      console.log("aaa");
       state.navMenuActive = action.payload;
     },
   },
