@@ -1,0 +1,7 @@
+.container {
+    background-color: var(--bg-tertiary-color);
+    padding: 30px 24px 24px;
+    .counter {
+        margin-bottom: 10px;
+    }
+}

@@ -13,6 +13,8 @@ type TActiveSectionItem = {
 };
 
 const ModalActiveItem = ({ currActSecItem }: TActiveSectionItem) => {
+  const { cart } = useSelector((state: RootCart) => state.cartReducer);
+
   const dispatch = useDispatch();
 
   const { t } = useTranslation();

@@ -8,6 +8,8 @@
     "locale": "en-US",
     "selectOptions_one": "Select {{count}} option",
     "selectOptions_other": "Select {{count}} options",
-    "addToOrder": "Add to Order · {{price}}"
+    "addToOrder": "Add to Order · {{price}}",
+    "yourBasket_one": "Your basket · {{count}} item",
+    "yourBasket_other": "Your basket · {{count}} items"
 
 }

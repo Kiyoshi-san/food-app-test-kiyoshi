@@ -1,11 +1,10 @@
 .container {
-    position: fixed;
     display: flex;
     justify-content: center;
     padding: 24px;
     background-color: var(--light-color);
     bottom: 0;
-    width: 100%;
+    width: 100vw;
     transform: translate(-16px, 0);
     a {
         color: var(--primary-color);

@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./menu.module.css";
 import Menu from "components/Menu";
@@ -15,12 +15,26 @@ import Search from "components/Search";
 import style from "./menu.module.css";
 import Modal from "components/ui/Modal";
 import ProductInfo from "components/ProductInfo";
-import { RootActiveModal } from "redux/activeModal/slice";
+import { RootActiveModal } from "../../redux/activeModal/slice";
+import { RootCart } from "../../redux/cart/slice";
+import BottomCart from "components/BottomCart";
 
 function MenuPage() {
+  const [totalItems, setTotalItems] = useState<number>();
+
+  useEffect(() => {
+    setTotalItems(
+      cart.products.reduce((acc, curr) => {
+        return acc + curr.quantity;
+      }, 0)
+    );
+  });
+
   const { modalContent } = useSelector(
     (state: RootActiveModal) => state.changeModalActiveReducer
   );
+
+  const { cart } = useSelector((state: RootCart) => state.cartReducer);
 
   const { t } = useTranslation();
 
@@ -51,6 +65,16 @@ function MenuPage() {
             />
             <ActiveSection currentActiveSection={currentActiveSection} />
             <AlergyInformation />
+            <div className={style.bottomCartContainer}>
+              {!!totalItems && (
+                <BottomCart
+                  buttonText={t("yourBasket", {
+                    count: totalItems,
+                  })}
+                  onClick={() => {}}
+                />
+              )}
+            </div>
           </div>
           <div className={style.cartContainer}></div>
         </div>
