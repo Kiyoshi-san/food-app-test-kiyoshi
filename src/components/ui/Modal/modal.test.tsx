@@ -4,7 +4,12 @@ import Modal from ".";
 
 describe("Modal", () => {
   it("should render Modal", () => {
-    const { container } = renderComponent(<Modal>test</Modal>);
+    const fn = jest.fn;
+    const { container } = renderComponent(
+      <Modal activeModal={true} handleCloseModal={fn}>
+        test
+      </Modal>
+    );
 
     expect(container).toBeInTheDocument();
   });

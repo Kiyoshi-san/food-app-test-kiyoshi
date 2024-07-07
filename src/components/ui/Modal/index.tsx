@@ -1,18 +1,31 @@
 import React, { ReactNode, useState } from "react";
 import style from "./modal.module.css";
 
-type TModal = { children: ReactNode; closeIcon?: boolean; opened?: boolean };
+type TModal = {
+  children: ReactNode;
+  closeIcon?: boolean;
+  activeModal?: boolean;
+  handleCloseModal: (activeModal: boolean) => void;
+};
 
-const Modal = ({ children, closeIcon = true, opened = true }: TModal) => {
-  const [openedModal, setOpenedModal] = useState<boolean>(opened);
-
+const Modal = ({
+  children,
+  closeIcon = true,
+  activeModal = false,
+  handleCloseModal,
+}: TModal) => {
   return (
-    <div className={`${style.container} ${openedModal ? style.opened : ""}`}>
+    <div className={`${style.container} ${activeModal ? style.active : ""}`}>
       <div className={style.modal}>
-        <i className={style.closeIcon} onClick={() => setOpenedModal(false)} />
+        {closeIcon && (
+          <i
+            className={style.closeIcon}
+            onClick={() => handleCloseModal(false)}
+          />
+        )}
         {children}
       </div>
-      <div className={style.overlay} onClick={() => setOpenedModal(false)} />
+      {/* <div className={style.overlay} onClick={() => handleCloseModal(false)} /> */}
     </div>
   );
 };

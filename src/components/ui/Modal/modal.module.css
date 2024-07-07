@@ -1,4 +1,7 @@
 .container {
+    position: absolute;
+    top: 0;
+    left: 0;
     visibility: hidden;
     .modal {
         display: none;
@@ -8,9 +11,8 @@
         transition: opacity 1s ease;
     }
 }
-.container.opened {
+.container.active {
     visibility: visible;
-    position: relative;
     width: 100%;
     z-index: 1;
     opacity: 1;
@@ -69,7 +71,7 @@
 }
 
 @media (max-width: 393px) {
-    .container.opened {
+    .container.active {
         
         .modal {
             height: 100vh;

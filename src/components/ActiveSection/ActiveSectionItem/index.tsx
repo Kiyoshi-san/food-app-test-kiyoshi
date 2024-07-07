@@ -1,20 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { TItem } from "model/restaurantMenu";
 import style from "./active-section-item.module.css";
 import { currencyConversor } from "utils/currency";
+import Modal from "components/ui/Modal";
+import ModalActiveItem from "../ModalActiveItem";
 
-type TActiveSection = {
+type TActiveSectionItem = {
   currActSecItem: TItem | undefined;
 };
 
-const ActiveSection = ({ currActSecItem }: TActiveSection) => {
+const ActiveSectionItem = ({ currActSecItem }: TActiveSectionItem) => {
+  const [activeModal, setActiveModal] = useState<boolean>(false);
+
   const { t } = useTranslation();
+  const locale = t("locale") || "en-US"; // fallback to "en-US"
+  const currency = t("currency") || "USD"; // fallback to "USD"
+
+  const handleCloseModal = (open: boolean) => {
+    setActiveModal(open);
+  };
+
   const convertedPrice =
-    currencyConversor(currActSecItem?.price || 0, t("locale")) || 0;
+    currencyConversor(currActSecItem?.price || 0, locale) || 0;
 
   return (
-    <div key={currActSecItem?.id} className={style.container}>
+    <div
+      key={currActSecItem?.id}
+      className={style.container}
+      onClick={() => setActiveModal(true)}
+    >
       <div className={style.descriptionContainer}>
         <h3>{currActSecItem?.name}</h3>
         <span>{currActSecItem?.description}</span>
@@ -22,7 +37,7 @@ const ActiveSection = ({ currActSecItem }: TActiveSection) => {
         <span>
           {convertedPrice.toLocaleString(t("locale"), {
             style: "currency",
-            currency: t("currency"),
+            currency: currency,
           })}
         </span>
       </div>
@@ -33,8 +48,11 @@ const ActiveSection = ({ currActSecItem }: TActiveSection) => {
           )}
         </div>
       )}
+      <Modal activeModal={activeModal} handleCloseModal={handleCloseModal}>
+        <ModalActiveItem currActSecItem={currActSecItem} />
+      </Modal>
     </div>
   );
 };
 
-export default ActiveSection;
+export default ActiveSectionItem;

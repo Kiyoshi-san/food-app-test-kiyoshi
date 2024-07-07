@@ -32,9 +32,6 @@ function MenuPage() {
 
   return (
     <section className={style.container}>
-      <Modal>
-        <ProductInfo />
-      </Modal>
       <Menu />
       <HeroBanner image={restaurantData?.webSettings.bannerImage || ""} />
       {/*  TODO: */}
