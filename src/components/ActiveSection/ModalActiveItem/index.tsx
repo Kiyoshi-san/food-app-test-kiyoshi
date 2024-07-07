@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useFormatPrice } from "hooks/currency/useFormatPrice";
 import ModifierOption from "./ModifierOption";
 import AddToCart from "./AddToCart";
-import { addProduct, RootCart } from "../../../redux/cart/slice";
+import { addProduct, RootCart, setTotalPrice } from "../../../redux/cart/slice";
 import { useSelector, useDispatch } from "react-redux";
 
 type TActiveSectionItem = {
@@ -13,8 +13,6 @@ type TActiveSectionItem = {
 };
 
 const ModalActiveItem = ({ currActSecItem }: TActiveSectionItem) => {
-  const { cart } = useSelector((state: RootCart) => state.cartReducer);
-
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
@@ -36,7 +34,6 @@ const ModalActiveItem = ({ currActSecItem }: TActiveSectionItem) => {
   }, [selectedOption]);
 
   useEffect(() => {
-    console.log(quantity);
     setSelectedTotalProductPrice(
       quantity * (currActSecItem?.price || 0) +
         quantity * (selectedOptionObj?.price || 0)
@@ -55,6 +52,8 @@ const ModalActiveItem = ({ currActSecItem }: TActiveSectionItem) => {
         total: selectedTotalProductPrice,
       })
     );
+    setQuantity(1);
+    dispatch(setTotalPrice());
   };
 
   return (
