@@ -22,11 +22,12 @@
         top: 6vh;
         left: 0;
         right: 0;
+        overflow: auto;
         margin-left: auto;
         margin-right: auto;
         width: 100%;
         max-width: 480px;
-        height: 720px;
+        max-height: 720px;
         background-color: var(--bg-tertiary-color);
         z-index: 1;
         .closeIcon {

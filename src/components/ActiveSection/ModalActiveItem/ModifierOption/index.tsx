@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TModifierItem } from "model/restaurantMenu";
 import style from "./modifier-option.module.css";
 import { useFormatPrice } from "hooks/currency/useFormatPrice";
@@ -6,12 +6,20 @@ import Input from "components/ui/Input";
 
 type TModifierOption = {
   options: TModifierItem[];
+  selectedOption: number | null;
+  setSelectedOption: (option: number) => void;
 };
 
-const ModifierOption = ({ options }: TModifierOption) => {
+const ModifierOption = ({
+  options,
+  selectedOption,
+  setSelectedOption,
+}: TModifierOption) => {
   const formatPrice = useFormatPrice;
 
-  const [selectedOption, setSelectedOption] = useState<number>(options[0].id);
+  useEffect(() => {
+    setSelectedOption(options[0].id);
+  }, []);
 
   const handleChange = (option: number) => {
     setSelectedOption(option);
