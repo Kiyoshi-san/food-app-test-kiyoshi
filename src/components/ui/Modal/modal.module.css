@@ -52,11 +52,11 @@
             background-color: var(--primary-color);
         }
         .closeIcon::before {
-            top: 5px;
+            top: 6px;
             transform: rotate(45deg);
         }
         .closeIcon::after {
-            top: -11px;
+            top: -10px;
             transform: rotate(-45deg);
         }
     }
@@ -77,6 +77,7 @@
         .modal {
             height: 100vh;
             top: 0;
+            max-height: 100vH;
             .closeIcon {
                 
             }

@@ -13,3 +13,9 @@
         font-weight: var(--bold);
     }
 }
+
+@media (min-width: 394px) {
+    .container {
+        display: none;
+    }
+}

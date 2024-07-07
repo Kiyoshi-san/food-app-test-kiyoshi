@@ -2,6 +2,7 @@ import { TItem, TModifierItem } from "model/restaurantMenu";
 import React, { useEffect, useState } from "react";
 import style from "./modal-active-item.module.css";
 import { useTranslation } from "react-i18next";
+import { useFormatPrice } from "hooks/currency/useFormatPrice";
 import ModifierOption from "./ModifierOption";
 import AddToCart from "./AddToCart";
 import { addProduct, RootCart } from "../../../redux/cart/slice";
@@ -16,11 +17,14 @@ const ModalActiveItem = ({ currActSecItem }: TActiveSectionItem) => {
 
   const dispatch = useDispatch();
 
+  const { t } = useTranslation();
+
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [selectedOptionObj, setSelectedOptionObj] =
     useState<TModifierItem | null>(null);
   const [quantity, setQuantity] = useState<number>(1);
-  const [selectedTotal, setSelectedTotal] = useState<number>(0);
+  const [selectedTotalProductPrice, setSelectedTotalProductPrice] =
+    useState<number>(0);
 
   useEffect(() => {
     if (currActSecItem?.modifiers?.length)
@@ -31,6 +35,14 @@ const ModalActiveItem = ({ currActSecItem }: TActiveSectionItem) => {
       );
   }, [selectedOption]);
 
+  useEffect(() => {
+    console.log(quantity);
+    setSelectedTotalProductPrice(
+      quantity * (currActSecItem?.price || 0) +
+        quantity * (selectedOptionObj?.price || 0)
+    );
+  }, [quantity, currActSecItem?.price, selectedOptionObj?.price]);
+
   const handleAddToCart = () => {
     dispatch(
       addProduct({
@@ -40,14 +52,11 @@ const ModalActiveItem = ({ currActSecItem }: TActiveSectionItem) => {
         additionalOptionName: selectedOptionObj?.name,
         additionalOptionPrice: selectedOptionObj?.price,
         quantity: quantity,
-        total:
-          quantity * (currActSecItem?.price || 0) +
-          (selectedOptionObj?.price || 0),
+        total: selectedTotalProductPrice,
       })
     );
   };
 
-  const { t } = useTranslation();
   return (
     <section className={style.container}>
       {!!currActSecItem?.images?.length && (
@@ -84,6 +93,9 @@ const ModalActiveItem = ({ currActSecItem }: TActiveSectionItem) => {
         <AddToCart
           quantity={quantity}
           setQuantity={setQuantity}
+          buttonText={t("addToOrder", {
+            price: useFormatPrice(selectedTotalProductPrice),
+          })}
           onClick={handleAddToCart}
         />
       </div>

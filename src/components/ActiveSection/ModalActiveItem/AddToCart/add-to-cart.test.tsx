@@ -6,7 +6,7 @@ describe("AddToCart", () => {
   it("should render the component", () => {
     const fn = jest.fn;
     const { container } = renderComponent(
-      <AddToCart quantity={0} setQuantity={fn} onClick={fn} />
+      <AddToCart quantity={0} setQuantity={fn} buttonText="test" onClick={fn} />
     );
   });
 });

@@ -7,5 +7,6 @@
     "currency": "BRL",
     "locale": "pt-BR",
     "selectOptions_one": "Selecione {{count}} opção",
-    "selectOptions_other": "Selecione {{count}} opções"
+    "selectOptions_other": "Selecione {{count}} opções",
+    "addToOrder_one": "Adicionar ao Pedido · {{price}}"
 }

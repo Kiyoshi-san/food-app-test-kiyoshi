@@ -6,17 +6,23 @@ import Button from "components/ui/Button";
 type TAddToCart = {
   quantity: number;
   setQuantity: (qty: number) => void;
+  buttonText: string;
   onClick: () => void;
 };
 
-const AddToCart = ({ quantity, setQuantity, onClick }: TAddToCart) => {
+const AddToCart = ({
+  quantity,
+  setQuantity,
+  buttonText,
+  onClick,
+}: TAddToCart) => {
   return (
     <div className={style.container}>
       <div className={style.counter}>
         <Counter quantity={quantity} setQuantity={setQuantity} />
       </div>
       <div className={style.addButton}>
-        <Button text="AddtoOrder" onClick={onClick} />
+        <Button text={buttonText} onClick={onClick} />
       </div>
     </div>
   );

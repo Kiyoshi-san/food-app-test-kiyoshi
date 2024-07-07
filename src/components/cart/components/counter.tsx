@@ -16,9 +16,11 @@ const Counter = ({ quantity = 1, setQuantity }: TCounter) => {
 
   return (
     <div className={style.container}>
-      <div className={style.minus} onClick={handleMinus} />
-      <span className={style.quantity}>{quantity}</span>
-      <div className={style.plus} onClick={handlePlus} />
+      <div className={style.minus} onClick={handleMinus} tabIndex={0} />
+      <span className={style.quantity} tabIndex={1}>
+        {quantity}
+      </span>
+      <div className={style.plus} onClick={handlePlus} tabIndex={2} />
     </div>
   );
 };

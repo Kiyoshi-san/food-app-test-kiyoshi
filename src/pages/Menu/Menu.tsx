@@ -44,9 +44,16 @@ function MenuPage() {
       {/*  TODO: */}
       <div className={style.belowSection}>
         <Search />
-        <MenuSectionMenu menuSections={menuData ? menuData.sections : null} />
-        <ActiveSection currentActiveSection={currentActiveSection} />
-        <AlergyInformation />
+        <div className={style.mainContainer}>
+          <div className={style.productContainer}>
+            <MenuSectionMenu
+              menuSections={menuData ? menuData.sections : null}
+            />
+            <ActiveSection currentActiveSection={currentActiveSection} />
+            <AlergyInformation />
+          </div>
+          <div className={style.cartContainer}></div>
+        </div>
       </div>
     </section>
   );

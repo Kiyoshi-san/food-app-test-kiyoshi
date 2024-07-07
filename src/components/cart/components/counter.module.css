@@ -49,6 +49,12 @@
         height: 18px;
         transform: rotate(90deg);
     }
+    .plus:focus, .minus:focus {
+        background-color: var(--light-color-text);
+    }
+    .plus:focus::before, .plus:focus::after, .minus:focus::before, .minus:focus::after {
+        background-color: var(--primary-color);            
+    }
     span.quantity {
         font-size: var(--font-x-size);
         font-weight: var(--bold);

@@ -7,6 +7,7 @@
     "currency": "USD",
     "locale": "en-US",
     "selectOptions_one": "Select {{count}} option",
-    "selectOptions_other": "Select {{count}} options"
+    "selectOptions_other": "Select {{count}} options",
+    "addToOrder": "Add to Order · {{price}}"
 
 }
