@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./menu.module.css";
 import Menu from "components/Menu";
 import MenuSectionMenu from "components/MenuSectionMenu";
@@ -15,12 +15,19 @@ import Search from "components/Search";
 import style from "./menu.module.css";
 import Modal from "components/ui/Modal";
 import ProductInfo from "components/ProductInfo";
-import { RootActiveModal } from "../../redux/activeModal/slice";
+import {
+  changeActiveModal,
+  changeModalContent,
+  RootActiveModal,
+} from "../../redux/activeModal/slice";
 import { RootCart } from "../../redux/cart/slice";
 import BottomCart from "components/BottomCart";
+import Cart from "components/cart";
 
 function MenuPage() {
   const [totalItems, setTotalItems] = useState<number>();
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setTotalItems(
@@ -46,6 +53,12 @@ function MenuPage() {
     menuData ? menuData.sections : null
   );
 
+  const handleModalCarrinho = () => {
+    const component = <Cart />;
+    dispatch(changeModalContent(component));
+    dispatch(changeActiveModal(true));
+  };
+
   if (menuLoading || restaurantLoading) {
     return <div>Loading...</div>;
   }
@@ -55,7 +68,6 @@ function MenuPage() {
       <Modal>{modalContent}</Modal>
       <Menu />
       <HeroBanner image={restaurantData?.webSettings.bannerImage || ""} />
-      {/*  TODO: */}
       <div className={style.belowSection}>
         <Search />
         <div className={style.mainContainer}>
@@ -71,12 +83,14 @@ function MenuPage() {
                   buttonText={t("yourBasket", {
                     count: totalItems,
                   })}
-                  onClick={() => {}}
+                  onClick={handleModalCarrinho}
                 />
               )}
             </div>
           </div>
-          <div className={style.cartContainer}></div>
+          <div className={style.cartContainer}>
+            <Cart />
+          </div>
         </div>
       </div>
     </section>

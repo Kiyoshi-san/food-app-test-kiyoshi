@@ -10,6 +10,12 @@
     "selectOptions_other": "Select {{count}} options",
     "addToOrder": "Add to Order · {{price}}",
     "yourBasket_one": "Your basket · {{count}} item",
-    "yourBasket_other": "Your basket · {{count}} items"
+    "yourBasket_other": "Your basket · {{count}} items",
+    "basket": "Basket",
+    "emptyCart": "Your basket is empty",
+    "with": "With {{item}}",
+    "subtotal": "Sub total",
+    "total": "Total",
+    "checkout": "Checkout now"
 
 }

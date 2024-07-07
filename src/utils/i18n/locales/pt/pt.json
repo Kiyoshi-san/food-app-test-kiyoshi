@@ -9,6 +9,12 @@
     "selectOptions_one": "Selecione {{count}} opção",
     "selectOptions_other": "Selecione {{count}} opções",
     "addToOrder_one": "Adicionar ao Pedido · {{price}}",
-    "yourBasket_one": "Sua sacola · {{count}} ítem",
-    "yourBasket_other": "Sua sacola · {{count}} ítens"
+    "yourBasket_one": "Seu carrinho · {{count}} ítem",
+    "yourBasket_other": "Seu carrinho · {{count}} ítens",
+    "basket": "Carrinho",
+    "emptyCart": "Seu carrinho está vazio",
+    "with": "Com {{item}}",
+    "subtotal": "Sub total",
+    "total": "Total",
+    "checkout": "Finalizar compra"
 }

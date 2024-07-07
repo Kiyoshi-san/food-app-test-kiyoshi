@@ -4,9 +4,10 @@ import style from "./counter.module.css";
 type TCounter = {
   quantity?: number;
   setQuantity: (qty: number) => void;
+  mini?: boolean;
 };
 
-const Counter = ({ quantity = 1, setQuantity }: TCounter) => {
+const Counter = ({ quantity = 1, setQuantity, mini = false }: TCounter) => {
   const handleMinus = () => {
     if (quantity > 1) setQuantity(quantity - 1);
   };
@@ -15,7 +16,7 @@ const Counter = ({ quantity = 1, setQuantity }: TCounter) => {
   };
 
   return (
-    <div className={style.container}>
+    <div className={`${style.container} ${mini ? style.mini : ""}`}>
       <div className={style.minus} onClick={handleMinus} tabIndex={0} />
       <span className={style.quantity} tabIndex={1}>
         {quantity}

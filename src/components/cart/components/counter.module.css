@@ -60,3 +60,24 @@
         font-weight: var(--bold);
     }
 }
+
+.container.mini {
+    .plus, .minus {
+        width: 20px;
+        height: 20px;
+    }
+    .plus::before, .plus::after {
+        content: '';
+        width: 3px;
+        height: 12px;
+    }
+    .minus::before {
+        content: '';
+        width: 3px;
+        height: 12px;
+    }
+    span.quantity {
+        font-size: var(--font-regular-size);
+        font-weight: var(--bold);
+    }
+}
