@@ -5,9 +5,17 @@ type TCounter = {
   quantity?: number;
   setQuantity: (qty: number) => void;
   mini?: boolean;
+  onClickMinus?: () => void;
+  onClickPlus?: () => void;
 };
 
-const Counter = ({ quantity = 1, setQuantity, mini = false }: TCounter) => {
+const Counter = ({
+  quantity = 1,
+  setQuantity,
+  mini = false,
+  onClickMinus,
+  onClickPlus,
+}: TCounter) => {
   const handleMinus = () => {
     if (quantity > 1) setQuantity(quantity - 1);
   };

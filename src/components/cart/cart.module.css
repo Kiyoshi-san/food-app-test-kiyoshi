@@ -100,6 +100,7 @@
     }
     .checkoutContainer {
         padding: 24px 16px 24px;
+        display: none;
     }
 }
 
@@ -205,6 +206,7 @@
             color: var(--light-text);
         }
         .checkoutContainer {
+            display: block;
             padding: 240px 16px 24px;
         }
     }
