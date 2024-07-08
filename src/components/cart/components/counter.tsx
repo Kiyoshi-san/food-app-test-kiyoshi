@@ -18,7 +18,6 @@ const Counter = ({
 }: TCounter) => {
   const handleMinus = () => {
     setQuantity && setQuantity(quantity - 1);
-    console.log(quantity);
     onClickMinus();
   };
   const handlePlus = () => {

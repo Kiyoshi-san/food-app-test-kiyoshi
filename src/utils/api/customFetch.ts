@@ -1,5 +1,4 @@
 // GET Request
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 interface CustomFetchOptions extends RequestInit {
   method?: "GET" | "POST" | "PUT" | "DELETE";
@@ -11,7 +10,7 @@ export const customFetch = async (
   endpoint: string,
   { method = "GET", headers = {}, mode = "cors" }: CustomFetchOptions = {}
 ) => {
-  const url = `${BASE_URL}${endpoint}`;
+  const url = `${endpoint}`;
 
   const options = {
     method,

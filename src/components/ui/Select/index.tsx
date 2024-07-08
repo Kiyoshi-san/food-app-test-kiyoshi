@@ -6,13 +6,8 @@ import i18n from "utils/i18n";
 const Select = () => {
   const [locale, setLocale] = useState<string>(i18n.language);
 
-  useEffect(() => {
-    console.log(locale);
-  }, [locale]);
-
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setLocale(event.target.value);
-    console.log(event.target.value);
     i18n.changeLanguage(event.target.value);
   };
 

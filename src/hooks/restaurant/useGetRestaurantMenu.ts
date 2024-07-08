@@ -10,15 +10,12 @@ export const useGetRestaurantMenu = () => {
   useEffect(() => {
     (async () => {
       try {
-        // const resp = await customFetch("/challenge/menu", {
-        const resp = await customFetch("/menu", {
+        const resp = await customFetch("/challenge/menu", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
         });
-        // TODO:
-        // const result: TStore = await resp.json();
         const result: TStore = await resp;
         setData(result);
       } catch (error) {
