@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import style from "./cart.module.css";
 import { useTranslation } from "react-i18next";
-import { RootCart } from "../../redux/cart/slice";
+import {
+  decreaseProductQuantity,
+  increaseProductQuantity,
+  RootCart,
+} from "../../redux/cart/slice";
 import Counter from "./components/counter";
 import { useFormatPrice } from "hooks/currency/useFormatPrice";
 import { currencyConversor } from "utils/currency";
 import Button from "components/ui/Button";
 
 const Cart = () => {
+  const dispatch = useDispatch();
+
   const formatPrice = useFormatPrice;
 
   const { cart } = useSelector((state: RootCart) => state.cartReducer);
@@ -37,6 +43,16 @@ const Cart = () => {
     );
   });
 
+  const handleClickPlus = (id: number) => {
+    const product = cart.products.find((prod) => prod.id === id);
+    dispatch(increaseProductQuantity(product));
+  };
+
+  const handleClickMinus = (id: number) => {
+    const product = cart.products.find((prod) => prod.id === id);
+    dispatch(decreaseProductQuantity(product));
+  };
+
   return (
     <div className={style.container}>
       <div className={style.title}>
@@ -53,8 +69,9 @@ const Cart = () => {
                   <div className={style.counterContainer}>
                     <Counter
                       quantity={product.quantity}
-                      setQuantity={setQuantity}
                       mini={true}
+                      onClickPlus={() => handleClickPlus(product.id)}
+                      onClickMinus={() => handleClickMinus(product.id)}
                     />
                   </div>
                 </div>

@@ -3,8 +3,8 @@ import style from "./counter.module.css";
 
 type TCounter = {
   quantity?: number;
-  setQuantity: (qty: number) => void;
   mini?: boolean;
+  setQuantity?: (qty: number) => void;
   onClickMinus?: () => void;
   onClickPlus?: () => void;
 };
@@ -13,14 +13,17 @@ const Counter = ({
   quantity = 1,
   setQuantity,
   mini = false,
-  onClickMinus,
-  onClickPlus,
+  onClickMinus = () => {},
+  onClickPlus = () => {},
 }: TCounter) => {
   const handleMinus = () => {
-    if (quantity > 1) setQuantity(quantity - 1);
+    setQuantity && setQuantity(quantity - 1);
+    console.log(quantity);
+    onClickMinus();
   };
   const handlePlus = () => {
-    setQuantity(quantity + 1);
+    setQuantity && setQuantity(quantity + 1);
+    onClickPlus();
   };
 
   return (

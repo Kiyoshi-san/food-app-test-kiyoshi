@@ -65,6 +65,7 @@ const cartSlice = createSlice({
             }
           : product
       );
+      cartSlice.caseReducers.setTotalPrice(state);
     },
     decreaseProductQuantity: (state, action) => {
       state.cart.products = state.cart.products
@@ -80,6 +81,7 @@ const cartSlice = createSlice({
             : product
         )
         .filter((product) => product.quantity > 0);
+      cartSlice.caseReducers.setTotalPrice(state);
     },
     setTotalPrice: (state = initialState) => {
       state.cart.total = state.cart.products.reduce((acc, curr) => {
