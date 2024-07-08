@@ -1,0 +1,47 @@
+.container {
+    position: absolute;
+    display: flex;
+    top: 0;
+    background-color: var(--bg-nav-color);
+    gap: 0 10px;
+    width: 70px;
+    border-radius: 7.29px;
+    margin: 10px 0;
+    padding: 0 10px;
+    cursor: pointer;
+    z-index: 1;
+    select {
+        border: 0;
+        outline: none;
+        height: 40px;
+        width: 100%;
+        background-color: var(--bg-nav-color);
+        font-size: var(--font-regular-size);
+        color: var(--white);
+        cursor: pointer;
+        option {
+            border: solid 2px red;
+            cursor: pointer;
+
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        display: block;
+    }
+}
+
+@media (min-width: 393px) and (max-width: 900px) {
+    .container {
+        display: none;
+    }
+}
+
+@media (max-width: 393px) {
+    .container {
+        display: block;
+        top: 8px;
+    }
+}

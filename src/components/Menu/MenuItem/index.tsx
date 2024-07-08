@@ -6,6 +6,7 @@ import { useGetPage } from "hooks/useGetPage";
 import { useSelector, useDispatch } from "react-redux";
 import { activeNavMenu, RootActiveNavMenu } from "../../../redux/navMenu/slice";
 import MenuItemMobile from "../MenuItemMobile";
+import Select from "components/ui/Select";
 
 type TMenuItems = {
   menuItems: TMenuItem[];
@@ -25,6 +26,7 @@ const MenuItem = ({ menuItems }: TMenuItems) => {
 
   return (
     <div className={style.menuItemContainer}>
+      <Select />
       <div className={style.menuItemsContainer}>
         <nav>
           <ul>

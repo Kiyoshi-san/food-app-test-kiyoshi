@@ -8,7 +8,7 @@
     "locale": "pt-BR",
     "selectOptions_one": "Selecione {{count}} opção",
     "selectOptions_other": "Selecione {{count}} opções",
-    "addToOrder_one": "Adicionar ao Pedido · {{price}}",
+    "addToOrder": "Adicionar Pedido · {{price}}",
     "yourBasket_one": "Seu carrinho · {{count}} ítem",
     "yourBasket_other": "Seu carrinho · {{count}} ítens",
     "basket": "Carrinho",

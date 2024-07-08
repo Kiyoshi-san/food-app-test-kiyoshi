@@ -2,6 +2,16 @@
     ul {
         display: flex;
         gap: 12px;
+        overflow-x: auto;
+        padding: 10px 0;
+        /* scrollbar-width: none; */
+        &::-webkit-scrollbar {
+            height: 2px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: var(--primary-color); 
+            border-radius: 10px;
+        }
         li {
             text-align: center;
             position: relative;

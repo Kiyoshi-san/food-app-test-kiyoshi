@@ -1,8 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import MenuItem from "./MenuItem";
 import style from "./menu.module.css";
 
 import { useTranslation } from "react-i18next";
+import Input from "components/ui/Input";
+import Select from "components/ui/Select";
 
 const Menu = () => {
   const { t } = useTranslation();
@@ -20,4 +22,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default memo(Menu);
