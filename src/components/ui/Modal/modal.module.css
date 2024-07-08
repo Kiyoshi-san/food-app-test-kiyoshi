@@ -31,6 +31,7 @@
         max-height: 720px;
         background-color: var(--bg-tertiary-color);
         z-index: 1;
+        transition: all 0.3s;
         .closeIcon {
             position: absolute;
             top: 18px;
@@ -72,13 +73,14 @@
     }
 }
 
-@media (max-width: 393px) {
+@media (max-width: 1024px) {
     .container.active {
         
         .modal {
             height: 100vh;
             top: 0;
             max-height: 100vH;
+            max-width: 100%;
             .closeIcon {
                 
             }
@@ -99,7 +101,7 @@
     .container {
         
         .modal {
-            
+            height: 0;
         }
     }
 }

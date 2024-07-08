@@ -20,10 +20,12 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addProduct: (state = initialState, action) => {
+    addProduct: (state, action) => {
       const hasProductInCart = state.cart.products.some(
         (product) => product.id === action.payload.id
       );
+
+      const additionalOptionPrice = action.payload.additionalOptionPrice ?? 0;
 
       if (hasProductInCart) {
         state.cart.products = state.cart.products.map((product) =>
@@ -31,12 +33,13 @@ const cartSlice = createSlice({
             ? {
                 ...product,
                 ...{
+                  additionalOptionName: product.additionalOptionName || "",
+                  additionalOptionPrice: product.additionalOptionPrice || 0,
                   quantity: product.quantity + action.payload.quantity,
                   total:
                     product.total +
                     action.payload.quantity * action.payload.price +
-                    action.payload.quantity *
-                      action.payload.additionalOptionPrice,
+                    action.payload.quantity * additionalOptionPrice,
                 },
               }
             : product
@@ -53,21 +56,21 @@ const cartSlice = createSlice({
       );
     },
     increaseProductQuantity: (state, action) => {
+      const additionalOptionPrice = action.payload.additionalOptionPrice ?? 0;
       state.cart.products = state.cart.products.map((product) =>
         product.id === action.payload.id
           ? {
               ...product,
               quantity: product.quantity + 1,
               total:
-                product.total +
-                action.payload.price +
-                action.payload.additionalOptionPrice,
+                product.total + action.payload.price + additionalOptionPrice,
             }
           : product
       );
       cartSlice.caseReducers.setTotalPrice(state);
     },
     decreaseProductQuantity: (state, action) => {
+      const additionalOptionPrice = action.payload.additionalOptionPrice ?? 0;
       state.cart.products = state.cart.products
         .map((product) =>
           product.id === action.payload.id
@@ -76,14 +79,14 @@ const cartSlice = createSlice({
                 quantity: product.quantity - 1,
                 total:
                   product.total -
-                  (action.payload.price + action.payload.additionalOptionPrice),
+                  (action.payload.price + additionalOptionPrice),
               }
             : product
         )
         .filter((product) => product.quantity > 0);
       cartSlice.caseReducers.setTotalPrice(state);
     },
-    setTotalPrice: (state = initialState) => {
+    setTotalPrice: (state) => {
       state.cart.total = state.cart.products.reduce((acc, curr) => {
         return acc + curr.total;
       }, 0);

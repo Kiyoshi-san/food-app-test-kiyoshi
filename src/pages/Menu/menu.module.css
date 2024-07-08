@@ -1,11 +1,10 @@
-@media (min-width: 393px) {
+@media (min-width: 1024px) {
   .container {
     height: 100%;
     min-height: 100vh;
     background-color: var(--bg-secondary-color);
     .belowSection {
       margin: 0 auto;
-      padding: 0 16px;
       max-width: var(--breakpoint-desktop);
       .mainContainer {
         background-color: var(--light-color);
@@ -14,7 +13,6 @@
         padding: 32px 40px;
         .productContainer {
           flex: 2;
-          padding: 24px 16px;
           background-color: var(--white);
           box-shadow: 0px 0px 5px 2px #00000014;
           .bottomCartContainer {
@@ -32,25 +30,14 @@
   }
 }
 
-@media (min-width: 393px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
   .container {
     .belowSection {
       .mainContainer {
         background-color: var(--light-color);
         display: flex;
         gap: 24px;
-        padding: 32px 40px;
         flex-direction: column;
-      }
-    }
-  }
-}
-
-@media (max-width: 393px) {
-  .container {
-    .belowSection {
-      padding: 0 16px;
-      .mainContainer {
         .productContainer {
           .bottomCartContainer {
             display: block;

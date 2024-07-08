@@ -20,9 +20,7 @@
         color: var(--white);
         cursor: pointer;
         option {
-            border: solid 2px red;
             cursor: pointer;
-
         }
     }
 }
@@ -33,13 +31,7 @@
     }
 }
 
-@media (min-width: 393px) and (max-width: 900px) {
-    .container {
-        display: none;
-    }
-}
-
-@media (max-width: 393px) {
+@media (max-width: 1024px) {
     .container {
         display: block;
         top: 8px;

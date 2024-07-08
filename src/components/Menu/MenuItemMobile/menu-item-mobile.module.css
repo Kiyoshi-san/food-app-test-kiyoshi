@@ -17,7 +17,7 @@
     }
 }
 
-@media (max-width: 393px) {
+@media (max-width: 1024px) {
     .menuItemContainerMobile{
         display: block;
         padding: 14px 16px;
@@ -77,7 +77,7 @@
             display: block;
             height: 16px;
             width: 19px;
-            right: 30px;
+            right: 0;
             top: 35%;
             cursor: pointer;
             .hamburger, .hamburger::before, .hamburger::after {

@@ -1,11 +1,10 @@
 .container {
+    position: relative;
     display: flex;
     justify-content: center;
     padding: 24px;
     background-color: var(--light-color);
-    bottom: 0;
-    width: 100vw;
-    transform: translate(-16px, 0);
+    width: 100%;
     a {
         color: var(--primary-color);
         font-size: var(--font-regular-size);
@@ -13,7 +12,7 @@
     }
 }
 
-@media (min-width: 393px) {
+@media (min-width: 1024px) {
     .container {
         display: none;
     }

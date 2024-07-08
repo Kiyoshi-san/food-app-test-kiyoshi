@@ -23,6 +23,7 @@ import {
 import { RootCart } from "../../redux/cart/slice";
 import BottomCart from "components/BottomCart";
 import Cart from "components/cart";
+import Wrapper from "components/Wrapper";
 
 function MenuPage() {
   const [totalItems, setTotalItems] = useState<number>();
@@ -72,10 +73,12 @@ function MenuPage() {
         <Search />
         <div className={style.mainContainer}>
           <div className={style.productContainer}>
-            <MenuSectionMenu
-              menuSections={menuData ? menuData.sections : null}
-            />
-            <ActiveSection currentActiveSection={currentActiveSection} />
+            <Wrapper>
+              <MenuSectionMenu
+                menuSections={menuData ? menuData.sections : null}
+              />
+              <ActiveSection currentActiveSection={currentActiveSection} />
+            </Wrapper>
             <AlergyInformation />
             <div className={style.bottomCartContainer}>
               {!!totalItems && (

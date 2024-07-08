@@ -28,7 +28,7 @@
     }
 }
 
-@media (max-width: 393px) {
+@media (max-width: 1024px) {
     .menuItemContainer{
         padding: 14px 16px;
         .menuItemsContainer {
