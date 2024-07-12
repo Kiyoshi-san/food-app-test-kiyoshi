@@ -9,7 +9,7 @@ export const useGetRestaurant = () => {
   useEffect(() => {
     (async () => {
       try {
-        const resp = await customFetch("/challenge/venue/9", {
+        const resp = await customFetch("/venue/9", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

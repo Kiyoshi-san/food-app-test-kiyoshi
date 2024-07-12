@@ -31,7 +31,7 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\""
   },
-  "proxy": "https://cdn-dev.preoday.com",
+  "proxy": "https://cdn-dev.preoday.com/challenge",
   "eslintConfig": {
     "extends": [
       "react-app",
