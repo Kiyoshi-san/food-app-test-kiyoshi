@@ -1,3 +1,6 @@
+# Link to access the Application
+https://food-app-test-kiyoshi.vercel.app/
+
 # Restaurant Delivery
 
 This is a restaurant food delivery application built with ReactJS.
