@@ -10,7 +10,7 @@ export const useGetRestaurantMenu = () => {
   useEffect(() => {
     (async () => {
       try {
-        const resp = await customFetch("/api/menu", {
+        const resp = await customFetch("/menu", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

@@ -10,7 +10,7 @@ export const customFetch = async (
   endpoint: string,
   { method = "GET", headers = {}, mode = "cors" }: CustomFetchOptions = {}
 ) => {
-  const url = `${endpoint}`;
+  const url = `${process.env.NODE_ENV !== "production" ? "" : "/api"}${endpoint}`;
 
   const options = {
     method,
